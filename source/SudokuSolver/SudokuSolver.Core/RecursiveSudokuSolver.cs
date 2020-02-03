@@ -34,6 +34,17 @@ namespace SudokuSolver.Core
             int minRow, maxRow;
             int minColumn, maxColumn;
 
+            int columnTripple = coordinate.Column / 3;
+            int rowTripple = coordinate.Row / 3;
+
+
+            minColumn = 3 * (columnTripple - 1);
+            maxColumn = minColumn + coordinate.Column % 3;
+
+            minRow = 3 * (rowTripple - 1);
+            maxRow = minRow + coordinate.Row % 3;
+
+
             throw new NotImplementedException();
         }
 
@@ -41,7 +52,7 @@ namespace SudokuSolver.Core
         {
             for (int i = 0; i < sudoku.GetLength(1); i++)
             {
-                if(sudoku[coordinates.Row, i] == value)
+                if (sudoku[coordinates.Row, i] == value)
                 {
                     return false;
                 }
